@@ -56,12 +56,22 @@
             console.log('data decoded from JSON:', simpson[0]);
 
             // Build a block of HTML
-            const simpsonHtml = `
+            const simpsonHtmlLeft = `
             <p><strong>${simpson[0].character}</strong></p>
             <img src="${simpson[0].image}" />
             <quote>${simpson[0].quote}</quote>
             `;
-            document.querySelector('#simpsons').innerHTML = simpsonHtml;
+			const simpsonHtmlRight = `
+            <p><strong>${simpson[0].character}</strong></p>
+            <quote>${simpson[0].quote}</quote>
+			<img src="${simpson[0].image}" />
+            `;
+			if (simpson[0].characterDirection == "Right") {
+				document.querySelector('#simpsons').innerHTML = simpsonHtmlRight
+			} else {
+				document.querySelector('#simpsons').innerHTML = simpsonHtmlLeft
+			}
+            
             });
             }
 
