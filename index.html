@@ -8,6 +8,7 @@
 		/>
 
 		<title>Ajax quest challenge</title>
+		<link rel="stylesheet" href="style.css">
 		<link rel="icon" type="image/png" href="favicon.png" />
 		<link
 			rel="stylesheet"
@@ -30,10 +31,11 @@
 		<section class="section">
 			<div class="container">
 				<h1 class="title">Simpson API</h1>
-				<button id="newQuote" style="margin-bottom: 30px">Nouvelle citation</button>
-				<div class="content" id="simpsons"></div>      
-			</div>
-            
+				<button id="newQuote">Nouvelle citation</button>
+					<div class="quote-image">
+					<div class="content" id="simpsons"></div>
+				</div>     
+			</div>  
 		</section>
 
 		<!-- We need to load axios first! -->
@@ -58,13 +60,17 @@
             // Build a block of HTML
             const simpsonHtmlLeft = `
             <p><strong>${simpson[0].character}</strong></p>
+			<div class="simpson">
             <img src="${simpson[0].image}" />
             <quote>${simpson[0].quote}</quote>
+			</div>
             `;
 			const simpsonHtmlRight = `
             <p><strong>${simpson[0].character}</strong></p>
+			<div class="simpson">
             <quote>${simpson[0].quote}</quote>
 			<img src="${simpson[0].image}" />
+			</div>
             `;
 			if (simpson[0].characterDirection == "Right") {
 				document.querySelector('#simpsons').innerHTML = simpsonHtmlRight

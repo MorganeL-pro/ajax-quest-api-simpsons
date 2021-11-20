@@ -1,0 +1,41 @@
+body {
+    background-color: lightblue;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.simpson {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+img {
+    width: 300px;
+}
+quote {
+    width: 250px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+#newQuote {
+    width: 15%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+#newQuote:hover {
+    background-color: lightcoral;
+    transition: 0.4s;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
