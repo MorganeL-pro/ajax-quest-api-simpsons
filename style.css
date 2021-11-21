@@ -18,7 +18,7 @@ body {
     justify-content: space-between;
 }
 img {
-    width: 300px;
+    max-height: 350px;
 }
 quote {
     width: 250px;
