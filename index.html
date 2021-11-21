@@ -72,10 +72,12 @@
 			<img src="${simpson[0].image}" />
 			</div>
             `;
-			if (simpson[0].characterDirection == "Right") {
-				document.querySelector('#simpsons').innerHTML = simpsonHtmlRight
-			} else {
+			if (simpson[0].characterDirection == "Left") {
 				document.querySelector('#simpsons').innerHTML = simpsonHtmlLeft
+			} else if (simpson[0].character == "Rainier Wolfcastle" && simpson[0].characterDirection == "Right") {
+				document.querySelector('#simpsons').innerHTML = simpsonHtmlLeft
+			} else {
+				document.querySelector('#simpsons').innerHTML = simpsonHtmlRight
 			}
             
             });
