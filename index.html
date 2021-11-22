@@ -46,43 +46,39 @@
 		></script>
 		<script>
             document.querySelector('#newQuote').addEventListener("click", fetchSimpsonJSON);
-            // This function loads pokemon data from the Pokemon API
             function fetchSimpsonJSON() {
-            // Feel free to download this HTML and edit it, to use another Pokemon ID
-            const url = `https://simpsons-quotes-api.herokuapp.com/quotes`;
-            axios.get(url)
-            .then(function(response) {
-            return response.data; // response.data instead of response.json() with fetch
-            })
-            .then(function(simpson) {
-            console.log('data decoded from JSON:', simpson[0]);
+				const url = `https://simpsons-quotes-api.herokuapp.com/quotes`;
+				axios.get(url)
+				.then(function(response) {
+				return response.data[0]; 
+				})
+				.then(function(simpson) {
+					console.log('data decoded from JSON:', simpson[0]);
 
-            // Build a block of HTML
-            const simpsonHtmlLeft = `
-            <p class="name"><strong>${simpson[0].character}</strong></p>
-			<div class="simpson">
-            <img src="${simpson[0].image}" />
-            <quote>${simpson[0].quote}</quote>
-			</div>
-            `;
-			const simpsonHtmlRight = `
-            <p class="name"><strong>${simpson[0].character}</strong></p>
-			<div class="simpson">
-            <quote>${simpson[0].quote}</quote>
-			<img src="${simpson[0].image}" />
-			</div>
-            `;
-			if (simpson[0].characterDirection == "Left") {
-				document.querySelector('#simpsons').innerHTML = simpsonHtmlLeft
-			} else if (simpson[0].character == "Rainier Wolfcastle" && simpson[0].characterDirection == "Right") {
-				document.querySelector('#simpsons').innerHTML = simpsonHtmlLeft
-			} else {
-				document.querySelector('#simpsons').innerHTML = simpsonHtmlRight
-			}
-            
-            });
+					// Build a block of HTML
+					const simpsonHtmlLeft = `
+					<p class="name"><strong>${simpson.character}</strong></p>
+					<div class="simpson">
+					<img src="${simpson.image}" />
+					<quote>${simpson.quote}</quote>
+					</div>
+					`;
+					const simpsonHtmlRight = `
+					<p class="name"><strong>${simpson.character}</strong></p>
+					<div class="simpson">
+					<quote>${simpson.quote}</quote>
+					<img src="${simpson.image}" />
+					</div>
+					`;
+					if (simpson.characterDirection == "Left") {
+						document.querySelector('#simpsons').innerHTML = simpsonHtmlLeft
+					} else if (simpson.character == "Rainier Wolfcastle" && simpson[0].characterDirection == "Right") {
+						document.querySelector('#simpsons').innerHTML = simpsonHtmlLeft
+					} else {
+						document.querySelector('#simpsons').innerHTML = simpsonHtmlRight
+					}
+				});
             }
-
             fetchSimpsonJSON();
         </script>
 	</body>
